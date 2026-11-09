@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "iHome",
+    "slug": "ihome",
+    "scheme": "ihome",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    
+    "platforms": ["ios"],
+    "ios": {
+      "bundleIdentifier": "com.pawelniedzwiecki.ihome",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "iHome talks to your Hue bridge and other smart lights on your home network.",
+        "NSBonjourServices": ["_hue._tcp"],
+        "NSAppTransportSecurity": { "NSAllowsLocalNetworking": true },
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "plugins": ["expo-router", "expo-secure-store"]
+  }
+}
