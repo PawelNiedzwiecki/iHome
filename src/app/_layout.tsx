@@ -26,6 +26,7 @@ export default function RootLayout() {
         <Stack.Screen name="light/[id]" options={{ title: '', presentation: 'modal' }} />
         <Stack.Screen name="settings/index" options={{ title: 'Hubs' }} />
         <Stack.Screen name="settings/hue-setup" options={{ title: 'Add Hue bridge' }} />
+        <Stack.Screen name="settings/govee" options={{ title: 'Govee' }} />
       </Stack>
     </>
   );

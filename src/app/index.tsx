@@ -8,7 +8,7 @@ import { LightTile } from '@/ui/LightTile';
 import { colors, radius, spacing } from '@/ui/theme';
 
 export default function HomeScreen() {
-  const { devices, errors, refreshing, hueBridges, nativeMissing } = useHome();
+  const { devices, errors, refreshing, hueBridges, goveeDevices, nativeMissing } = useHome();
 
   const rooms = useMemo(() => {
     const byRoom = new Map<string, Device[]>();
@@ -55,13 +55,16 @@ export default function HomeScreen() {
           <Banner key={e.driver} text={`${e.driver}: ${e.message}`} />
         ))}
 
-        {hueBridges.length === 0 && (
+        {hueBridges.length === 0 && goveeDevices.length === 0 && devices.length === 0 && (
           <View style={styles.empty}>
-            <Text style={styles.emptyTitle}>No hubs yet</Text>
-            <Text style={styles.emptyText}>Add your Philips Hue bridge to see your lights here.</Text>
+            <Text style={styles.emptyTitle}>No lights yet</Text>
+            <Text style={styles.emptyText}>Add your Philips Hue bridge or Govee lights to see them here.</Text>
             <Pressable style={styles.primaryButton} onPress={() => router.push('/settings/hue-setup')}>
               <Text style={styles.primaryButtonText}>Add Hue bridge</Text>
             </Pressable>
+            <Text style={styles.roomAction} onPress={() => router.push('/settings/govee')}>
+              Add Govee lights
+            </Text>
           </View>
         )}
 
